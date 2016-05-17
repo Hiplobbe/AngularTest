@@ -1,0 +1,47 @@
+﻿@using System.Web.Optimization
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    @Scripts.Render("~/scripts/jquery")
+    @Styles.Render("~/styles/jquery")
+    <script src="~/signalr/hubs"></script>
+    <script src="~/scripts/angular.min.js"></script>
+    <script src="~/scripts/Main/Angular.js"></script>
+    <link href="~/styles/LobbySheet.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body ng-app="app">
+    <div class="divMenu" ng-controller="menuController">
+        <div class="divLogin" ng-class="{hidden:loggedIn}">
+            Pick a name: <input id="txtUsername" type="text" ng-model="strUsername" placeholder="Insert username"/>
+            <input id="buLogin" type="button" ng-click="login()" value="Submit" />
+        </div>
+        <div class="divOnline" ng-class="{hidden:loggedIn == false}">
+            <h5>Users online</h5>
+            <ul class="ulPlayers">
+                <li ng-repeat="Object in users | filterNotOwnId:this | orderBy: 'username' ">
+                    {{Object.username}} <input id="buInvite" type="button" class="buInvite" ng-show="gameId != -1" ng-click="invite(Object.id)" value="Invite to game"/>
+                </li>
+            </ul>
+            <input id="buLogout" class="buLogout" type="button" ng-click="logOut()" value="Log out"/>
+        </div>
+        <div id="historyTab" ng-show="historyObj != undefined">
+            <h5>Latest game played!</h5>
+            <span>Winning player:{{historyObj.WinningPlayer}}</span>
+            <br />
+            <span>Conclosion: {{historyObj.WMessage}}</span>
+            <br/>
+            <br/>
+            <div ng-repeat="turn in historyObj.TurnsMade track by $index">
+                <span>{{turn}}</span>
+            </div>
+        </div> 
+        <div id="invite-dialog">
+            <span id="invite-message"></span>
+        </div>
+    </div>
+<div class="divGame">
+    @RenderBody()
+</div>
+</body>
+</html>

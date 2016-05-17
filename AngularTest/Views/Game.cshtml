@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "GameView";
+    Layout = "~/Views/_Lobby.cshtml";
+}
+
+<div ng-controller="gameController">
+    <div ng-class="{hidden:loggedIn == false}">
+        <input id="buStartGame" type="button" ng-click="startGame()" ng-show="gameId == -1  && id != -1" value="Start new game"/>
+        <div class="divMainGame" ng-show="gameId != -1">
+            <h5>Players ingame: <span ng-class="{spanPlayerTurn:game.currentPlayer == 1}">{{game.playerOne.username}}</span>,<span ng-class="{spanPlayerTurn:game.currentPlayer == 2}">{{game.playerTwo.username}}</span></h5>
+            <table id="tBoard">
+                <tbody>
+                    <tr>
+                        <td id="tile1" ng-class="{ownedPlayerOne:game.tiles[0] == 1,ownedPlayerTwo: game.tiles[0] == 2}" ng-click="playerClick(0)"></td>
+                        <td id="tile2" ng-class="{ownedPlayerOne:game.tiles[1] == 1,ownedPlayerTwo: game.tiles[1] == 2}" ng-click="playerClick(1)"></td>
+                        <td id="tile3" ng-class="{ownedPlayerOne:game.tiles[2] == 1,ownedPlayerTwo: game.tiles[2] == 2}" ng-click="playerClick(2)"></td>
+                    </tr>
+                    <tr>
+                        <td id="tile4" ng-class="{ownedPlayerOne:game.tiles[3] == 1,ownedPlayerTwo: game.tiles[3] == 2}" ng-click="playerClick(3)"></td>
+                        <td id="tile5" ng-class="{ownedPlayerOne:game.tiles[4] == 1,ownedPlayerTwo: game.tiles[4] == 2}" ng-click="playerClick(4)"></td>
+                        <td id="tile6" ng-class="{ownedPlayerOne:game.tiles[5] == 1,ownedPlayerTwo: game.tiles[5] == 2}" ng-click="playerClick(5)"></td>
+                    </tr>
+                    <tr>
+                        <td id="tile7" ng-class="{ownedPlayerOne:game.tiles[6] == 1,ownedPlayerTwo: game.tiles[6] == 2}" ng-click="playerClick(6)"></td>
+                        <td id="tile8" ng-class="{ownedPlayerOne:game.tiles[7] == 1,ownedPlayerTwo: game.tiles[7] == 2}" ng-click="playerClick(7)"></td>
+                        <td id="tile9" ng-class="{ownedPlayerOne:game.tiles[8] == 1,ownedPlayerTwo: game.tiles[8] == 2}" ng-click="playerClick(8)"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

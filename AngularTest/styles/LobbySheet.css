@@ -1,0 +1,46 @@
+﻿.divMenu
+{
+    position:relative;
+    display: block;
+    height: 80%;
+    width: 320px;
+    border: black;
+    border-style: double;
+    float: left;
+}
+.divLogin {
+    position: absolute;
+    width: 320px;
+}
+.hidden {
+    display: none;
+}
+.buInvite {
+    width: 100px;
+}
+.spanPlayerTurn {
+    background-color: greenyellow;
+}
+.ownedPlayerOne {
+    background-color: blue;
+}
+.ownedPlayerTwo {
+    background-color: red;
+}
+#tBoard td {
+    width: 150px;
+    height: 150px;
+    border-style: groove;
+}
+.divGame {
+    display: block;
+    height: 600px;
+    width: 700px;
+    float: left;
+}
+#historyTab {
+    display: block;
+    height: 600px;
+    width: 400px;
+    float: left;
+}
