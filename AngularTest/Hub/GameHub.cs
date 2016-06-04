@@ -5,7 +5,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using Microsoft.Win32;
 
-namespace ChallengerModeTest.Hub
+namespace AngularTest.Hub
 {
     public class GameHub : Microsoft.AspNet.SignalR.Hub
     {

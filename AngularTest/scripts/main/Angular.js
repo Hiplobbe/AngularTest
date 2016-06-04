@@ -1,14 +1,8 @@
-/// <reference path="../typings/jquery/jquery.d.ts" />
-/// <reference path="../typings/signalr/signalr.d.ts" />
-/// <reference path="../typings/angularjs/angular.d.ts" />
-var Game //Not currently used in code but left here to show what the object contains.
- = (function () {
-    function Game //Not currently used in code but left here to show what the object contains.
-        () {
+var Game = (function () {
+    function Game() {
         this.game = {};
     }
-    return Game //Not currently used in code but left here to show what the object contains.
-    ;
+    return Game;
 }());
 (function () {
     'use strict';
@@ -68,12 +62,11 @@ var Game //Not currently used in code but left here to show what the object cont
                     $scope.id = result;
                 });
                 comService.loggedIn = true;
-                //Remove user if leaving page. Also runs on "reload" so postback has to be avoided.
                 window.addEventListener('beforeunload', function () {
                     $scope.logOut();
                 });
                 if (!$scope.$$phase) {
-                    $scope.$digest(); //Fixes a wierd bug where comService.userId still has no value;
+                    $scope.$digest();
                 }
             }
         };
@@ -127,12 +120,12 @@ var Game //Not currently used in code but left here to show what the object cont
         hub.client.updateBoard = function (game) {
             if (!$scope.$$phase) {
                 $scope.$apply(function () {
-                    $scope.game = angular.fromJson(game); //Update the game info.
+                    $scope.game = angular.fromJson(game);
                     $scope.gameId = $scope.game.gameId;
                 });
             }
             else {
-                $scope.game = angular.fromJson(game); //Update the game info.
+                $scope.game = angular.fromJson(game);
                 $scope.gameId = $scope.game.gameId;
             }
         };
@@ -206,3 +199,4 @@ var Game //Not currently used in code but left here to show what the object cont
         return sharedInfo;
     }
 })();
+//# sourceMappingURL=Angular.js.map

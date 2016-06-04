@@ -5,7 +5,7 @@ using System.Security.Policy;
 using System.Web;
 using Newtonsoft.Json;
 
-namespace ChallengerModeTest.Hub
+namespace AngularTest.Hub
 {
     public static class GameHolder
     {

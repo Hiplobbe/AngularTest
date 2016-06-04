@@ -5,7 +5,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using Newtonsoft.Json;
 
-namespace ChallengerModeTest.Hub
+namespace AngularTest.Hub
 {
     public class MenuHub : Microsoft.AspNet.SignalR.Hub
     {

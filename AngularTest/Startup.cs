@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(ChallengerModeTest.Startup))]
-namespace ChallengerModeTest
+[assembly: OwinStartup(typeof(AngularTest.Startup))]
+namespace AngularTest
 {
     public class Startup
     {
